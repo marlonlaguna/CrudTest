@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="angular.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script src="moment.js">  </script>
+  <link rel="stylesheet" href="index.css">
+
+    </head>
+    <body ng-app="myApp" ng-controller="myCtrl">
+        <div class="counterPanel panel panel-primary " >
+            <div class="panel-heading">Crud</div>
+            <div class="panel-body">
+                <form name="myForm">
+             
+                  <div class="form-group">
+                    <label for="usr">Nombre:</label>
+                    <input type="text" ng-model="nombre" class="form-control" id="usr">
+                  </div>
+                  <div class="form-group">
+                    <label for="usr">Apellido:</label>
+                    <input type="text" ng-model="apellido" class="form-control" id="usr">
+                  </div>
+                  <div class="form-group">
+                    <button type="button" ng-disabled="nombre == '' || apellido == ''" ng-click="agregarPersona();" class="btn btn-primary float-right" style="margin-top:20px; float: right; margin-left: 10px;">Create</button>
+                    <button type="button" ng-disabled="personaSeleccionada == null" ng-click="editar();" class="btn btn-primary float-right" style="margin-top:20px; float: right;">Update</button>
+                  </div>
+                 
+                  <div class="form-group">
+                  <label for="sel2" style="margin-top: 50px;">filter prefix</label>
+                  <input type="text"  ng-model="Busqueda" class="form-control" id="usr">
+                  <select multiple class="form-control" style="margin-top:10px;" id="sel2">
+                    <option ng-repeat="persona in personas | filter:{apellido:Busqueda} track by $index" ng-click="seleccionarPersona(persona,persona.id);">{{($index + 1) + " "+ persona.nombre + " " + persona.apellido}}</option>
+                    
+                  </select>
+                </div>
+                  <div class="row">
+                    <div class="col-md-3">
+                      <button type="button" ng-disabled="personaSeleccionada == null;" ng-click="eliminar();" class="btn btn-primary" style="margin-top:20px;">delete</button>
+                    </div>
+                   
+                  </div>
+               
+                </form>
+            </div>
+          </div>
+      
+    </body>
+</html>
+<script src="index.js">  </script>
+<script src="services.js">  </script>

@@ -7,6 +7,8 @@ debe ejecutar desde una base de datos MYSQL con la base de datos "crud_test" pre
 
 todo el proyecto debe montarse en un servidor web que pueda correr php 7  o superior y que tenga conexion con la base de datos mysql.
 
+el archivo principal es el index.html desde el cual se abre todo el proyecto una vez montado en el servidor web
+
 tecnologias utilizadas: angularJS, php, html, mysql.
 
 explicacion:
